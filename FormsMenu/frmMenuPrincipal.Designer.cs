@@ -63,7 +63,7 @@
             // 
             // Fractales
             // 
-            Fractales.Location = new Point(47, 576);
+            Fractales.Location = new Point(49, 579);
             Fractales.Name = "Fractales";
             Fractales.Size = new Size(94, 50);
             Fractales.TabIndex = 2;
