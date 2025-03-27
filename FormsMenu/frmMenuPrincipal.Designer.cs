@@ -63,7 +63,7 @@
             // 
             // Fractales
             // 
-            Fractales.Location = new Point(49, 579);
+            Fractales.Location = new Point(47, 561);
             Fractales.Name = "Fractales";
             Fractales.Size = new Size(94, 50);
             Fractales.TabIndex = 2;
@@ -118,7 +118,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(49, 556);
+            label5.Location = new Point(47, 538);
             label5.Name = "label5";
             label5.Size = new Size(67, 20);
             label5.TabIndex = 8;
