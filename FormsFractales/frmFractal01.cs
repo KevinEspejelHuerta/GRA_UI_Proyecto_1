@@ -16,7 +16,7 @@ namespace FormsFractales
         }
 
         private void MandelbrotSet()
-        { 
+        {
             int width = ptbMandelbrot.Width;
             int heigth = ptbMandelbrot.Height;
 
@@ -34,23 +34,23 @@ namespace FormsFractales
 
                     while (iteraciones < 1000 && ((x * x) + (y * y)) < 4.0)
                     {
-                        double x_temporal = (x*x) -(y*y) +c_re;
+                        double x_temporal = (x * x) - (y * y) + c_re;
                         y = 2 * x * y + c_im;
                         x = x_temporal;
                         iteraciones++;
                     }
-                    if (iteraciones < 1000) 
+                    if (iteraciones < 1000)
                     {
                         bmp.SetPixel(col, row, Color.FromArgb(iteraciones % 128, iteraciones % 50 * 5, iteraciones % 10));
-                        
-                    } 
+
+                    }
                     else
                     {
                         bmp.SetPixel(col, row, Color.Black);
                     }
                 }
             }
-            ptbMandelbrot.Image = bmp;  
+            ptbMandelbrot.Image = bmp;
         }
 
         private void SierpinskiTriangle()
@@ -195,6 +195,9 @@ namespace FormsFractales
             return Color.FromArgb(r, g, b);
         }
 
+        private void ptbMandelbrot_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

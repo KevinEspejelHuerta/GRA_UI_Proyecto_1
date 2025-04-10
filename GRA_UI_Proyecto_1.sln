@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormsFractales", "FormsFrac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormsGraficos", "FormsLineas\FormsGraficos.csproj", "{D1F4A0E4-7EEA-4ED8-8BD7-735C2E09F3CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsMenu", "FormsMenu\FormsMenu.csproj", "{E16AEABB-B144-43FD-81F9-E0EBB24027D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormsMenu", "FormsMenu\FormsMenu.csproj", "{E16AEABB-B144-43FD-81F9-E0EBB24027D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Deformacion", "Deformacion\Deformacion.csproj", "{5D335568-C712-4F55-840A-3B475DA3F16D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matrices", "Matrices\Matrices.csproj", "{E29878EF-698B-465B-AC34-C6857F1C1904}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{E16AEABB-B144-43FD-81F9-E0EBB24027D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E16AEABB-B144-43FD-81F9-E0EBB24027D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E16AEABB-B144-43FD-81F9-E0EBB24027D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D335568-C712-4F55-840A-3B475DA3F16D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D335568-C712-4F55-840A-3B475DA3F16D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D335568-C712-4F55-840A-3B475DA3F16D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D335568-C712-4F55-840A-3B475DA3F16D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E29878EF-698B-465B-AC34-C6857F1C1904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E29878EF-698B-465B-AC34-C6857F1C1904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E29878EF-698B-465B-AC34-C6857F1C1904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E29878EF-698B-465B-AC34-C6857F1C1904}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

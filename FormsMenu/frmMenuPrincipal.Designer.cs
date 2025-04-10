@@ -53,37 +53,43 @@
             // 
             // Menu1
             // 
+            Menu1.BackColor = Color.Transparent;
             Menu1.FlatAppearance.BorderSize = 0;
+            Menu1.FlatStyle = FlatStyle.System;
+            Menu1.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Menu1.Location = new Point(47, 241);
             Menu1.Name = "Menu1";
-            Menu1.Size = new Size(94, 48);
+            Menu1.Size = new Size(347, 48);
             Menu1.TabIndex = 1;
             Menu1.Text = "Aceptar";
-            Menu1.UseVisualStyleBackColor = true;
+            Menu1.UseVisualStyleBackColor = false;
             // 
             // Fractales
             // 
-            Fractales.Location = new Point(47, 561);
+            Fractales.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Fractales.Location = new Point(47, 588);
             Fractales.Name = "Fractales";
-            Fractales.Size = new Size(94, 50);
+            Fractales.Size = new Size(351, 50);
             Fractales.TabIndex = 2;
             Fractales.Text = "Aceptar";
             Fractales.UseVisualStyleBackColor = true;
             // 
             // Graficos
             // 
-            Graficos.Location = new Point(47, 338);
+            Graficos.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Graficos.Location = new Point(47, 348);
             Graficos.Name = "Graficos";
-            Graficos.Size = new Size(94, 57);
+            Graficos.Size = new Size(347, 57);
             Graficos.TabIndex = 3;
             Graficos.Text = "Aceptar";
             Graficos.UseVisualStyleBackColor = true;
             // 
             // Matrices
             // 
-            Matrices.Location = new Point(47, 451);
+            Matrices.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Matrices.Location = new Point(47, 469);
             Matrices.Name = "Matrices";
-            Matrices.Size = new Size(94, 59);
+            Matrices.Size = new Size(347, 59);
             Matrices.TabIndex = 4;
             Matrices.Text = "Aceptar";
             Matrices.UseVisualStyleBackColor = true;
@@ -91,38 +97,50 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(47, 218);
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Yu Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(47, 202);
             label2.Name = "label2";
-            label2.Size = new Size(61, 20);
+            label2.Size = new Size(125, 36);
             label2.TabIndex = 5;
             label2.Text = "Menu 1:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(47, 306);
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Yu Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(47, 309);
             label3.Name = "label3";
-            label3.Size = new Size(70, 20);
+            label3.Size = new Size(146, 36);
             label3.TabIndex = 6;
             label3.Text = "Graficos: ";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(47, 428);
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Yu Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(47, 430);
             label4.Name = "label4";
-            label4.Size = new Size(65, 20);
+            label4.Size = new Size(143, 36);
             label4.TabIndex = 7;
-            label4.Text = "Matrices";
+            label4.Text = "Matrices:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(47, 538);
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Yu Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(47, 549);
             label5.Name = "label5";
-            label5.Size = new Size(67, 20);
+            label5.Size = new Size(149, 36);
             label5.TabIndex = 8;
-            label5.Text = "Fractales";
+            label5.Text = "Fractales:";
             // 
             // frmMenuPrincipal
             // 

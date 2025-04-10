@@ -39,6 +39,7 @@
             ptbMandelbrot.Size = new Size(550, 550);
             ptbMandelbrot.TabIndex = 0;
             ptbMandelbrot.TabStop = false;
+            ptbMandelbrot.Click += ptbMandelbrot_Click;
             // 
             // frmFractal01
             // 
