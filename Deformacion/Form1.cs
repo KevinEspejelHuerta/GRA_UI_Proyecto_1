@@ -6,136 +6,107 @@ namespace Deformacion
 {
     public partial class Form1 : Form
     {
-        private float posX = 50;
-        private float posY = 50;
-        private float radio = 30;
+        private float posX;
+        private float posY;
+        private float radio = 10;
+        private float dx;
+        private float dy;
 
-        private float dx = 5f;     // Velocidad horizontal
-        private float dy = 0f;     // Velocidad vertical
-
-        private float escalaX = 1.0f;
-        private float escalaY = 1.0f;
-
-        private float deformacionTemporalX = 0;
-        private float deformacionTemporalY = 0;
-
-        private float gravedad = 0.5f;
+        // Escala dentro del picture Box
+        private float escala = 25f; 
+        private float gravedad = 9.8f * 0.1f; // simulación con pasos de 0.1s
         private float reboteFactor = -0.7f;
-        private float limiteInferior;
+
+        private float deformacionX = 0;
+        private float deformacionY = 0;
+
+        private float tiempo = 0;
 
         public Form1()
         {
             InitializeComponent();
             pictureBox1.Paint += pictureBox1_Paint;
+            timer1.Interval = 100; // 0.1 segundos
             timer1.Tick += timer1_Tick;
+
             btnStart.Click += btnStart_Click;
             btnReset.Click += btnReset_Click;
-            trackEscalaX.Scroll += trackEscalaX_Scroll;
-            trackEscalaY.Scroll += trackEscalaY_Scroll;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            limiteInferior = pictureBox1.Height;
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if (!timer1.Enabled)
-            {
-                timer1.Start();
-                btnStart.Text = "Detener";
-            }
-            else
-            {
-                timer1.Stop();
-                btnStart.Text = "Iniciar";
-            }
+            // Configurar condiciones iniciales
+            float alturaInicial = (float)numAltura.Value;
+            float velocidadInicial = (float)numVelocidad.Value;
+
+            posX = 0;
+            posY = pictureBox1.Height - alturaInicial * escala - radio * 2;
+
+            dx = velocidadInicial * 0.1f * escala; // convertir a px/intervalo
+            dy = 0;
+
+            deformacionX = 0;
+            deformacionY = 0;
+            tiempo = 0;
+
+            timer1.Start();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            posX = 50;
-            posY = 50;
-            dx = 5f;
-            dy = 0f;
-            escalaX = 1.0f;
-            escalaY = 1.0f;
-            deformacionTemporalX = 0;
-            deformacionTemporalY = 0;
-
-            lblAltura.Text = "Altura: 0";
-            lblDistancia.Text = "Distancia: 0";
-
-            trackEscalaX.Value = 100;
-            trackEscalaY.Value = 100;
-            lblEscalaX.Text = "Escala X: 1.00";
-            lblEscalaY.Text = "Escala Y: 1.00";
-
+            timer1.Stop();
+            posX = 0;
+            posY = 0;
+            dx = 0;
+            dy = 0;
+            lblAltura.Text = "Altura: 0 m";
+            lblDistancia.Text = "Distancia: 0 m";
             pictureBox1.Invalidate();
-        }
-
-        private void trackEscalaX_Scroll(object sender, EventArgs e)
-        {
-            escalaX = trackEscalaX.Value / 100.0f;
-            lblEscalaX.Text = $"Escala X: {escalaX:F2}";
-        }
-
-        private void trackEscalaY_Scroll(object sender, EventArgs e)
-        {
-            escalaY = trackEscalaY.Value / 100.0f;
-            lblEscalaY.Text = $"Escala Y: {escalaY:F2}";
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            // Simular gravedad
+            tiempo += 0.1f;
+
+            // Aplicar gravedad
             dy += gravedad;
 
+            // Actualizar posición
             posX += dx;
             posY += dy;
 
-            float alturaCirculo = radio * 2 * (escalaY + deformacionTemporalY);
+            float limiteInferior = pictureBox1.Height - radio * 2;
 
-            // Rebote en el suelo
-            if (posY + alturaCirculo >= pictureBox1.Height)
+            // Rebote
+            if (posY >= limiteInferior)
             {
-                posY = pictureBox1.Height - alturaCirculo;
-
-                float fuerzaImpacto = Math.Abs(dy);
-
+                posY = limiteInferior;
                 dy *= reboteFactor;
-                dx *= 0.95f; // también reduce la velocidad horizontal
+                dx *= 0.95f;
 
-                deformacionTemporalX = fuerzaImpacto * 0.05f;
-                deformacionTemporalY = -fuerzaImpacto * 0.03f;
+                float fuerza = Math.Abs(dy);
+                deformacionX = fuerza * 0.2f;
+                deformacionY = -fuerza * 0.1f;
 
-                // Si la energía es baja, detener
-                if (Math.Abs(dy) < 0.5f && Math.Abs(dx) < 0.5f)
+                if (Math.Abs(dy) < 1f && Math.Abs(dx) < 1f)
                 {
                     dy = 0;
                     dx = 0;
                     timer1.Stop();
-                    btnStart.Text = "Iniciar";
                 }
             }
 
-            // Rebote en bordes laterales
-            float anchoCirculo = radio * 2 * (escalaX + deformacionTemporalX);
-            if (posX <= 0 || posX + anchoCirculo >= pictureBox1.Width)
-            {
-                dx *= -1;
-                posX = Math.Clamp(posX, 0, pictureBox1.Width - anchoCirculo);
-            }
+            // Reducir deformación
+            deformacionX *= 0.9f;
+            deformacionY *= 0.9f;
 
-            // Disminuir deformación progresivamente
-            deformacionTemporalX *= 0.9f;
-            deformacionTemporalY *= 0.9f;
+            // Mostrar resultados
+            float alturaReal = (pictureBox1.Height - posY - radio * 2) / escala;
+            float distanciaReal = posX / escala;
+            lblAltura.Text = $"Altura: {alturaReal:F2} m";
+            lblDistancia.Text = $"Distancia: {distanciaReal:F2} m";
 
             pictureBox1.Invalidate();
-
-            lblDistancia.Text = $"Distancia: {posX:F2}";
-            lblAltura.Text = $"Altura: {posY:F2}";
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
@@ -143,8 +114,31 @@ namespace Deformacion
             Graphics g = e.Graphics;
             g.Clear(Color.White);
 
-            float ancho = radio * 2 * (escalaX + deformacionTemporalX);
-            float alto = radio * 2 * (escalaY + deformacionTemporalY);
+            // Dibujar ejes
+            using (Pen ejePen = new Pen(Color.Gray, 1))
+            {
+                // eje Y
+                g.DrawLine(ejePen, 20, 0, 20, pictureBox1.Height);
+                for (int i = 0; i <= pictureBox1.Height / escala; i++)
+                {
+                    int y = pictureBox1.Height - (int)(i * escala);
+                    g.DrawLine(Pens.LightGray, 15, y, pictureBox1.Width, y);
+                    g.DrawString(i.ToString() + "", DefaultFont, Brushes.Black, 0, y - 10);
+                }
+
+                // eje X
+                g.DrawLine(ejePen, 0, pictureBox1.Height - 1, pictureBox1.Width, pictureBox1.Height - 1);
+                for (int i = 0; i <= pictureBox1.Width / escala; i++)
+                {
+                    int x = (int)(i * escala);
+                    g.DrawLine(Pens.LightGray, x, pictureBox1.Height - 5, x, 0);
+                    g.DrawString(i.ToString() + " ", DefaultFont, Brushes.Black, x, pictureBox1.Height - 20);
+                }
+            }
+
+            // Dibujar pelota
+            float ancho = radio * 2 * (1 + deformacionX);
+            float alto = radio * 2 * (1 + deformacionY);
 
             g.FillEllipse(Brushes.Orange, posX, posY, ancho, alto);
         }

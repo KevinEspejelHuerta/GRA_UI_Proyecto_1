@@ -39,22 +39,28 @@
             trackEscalaY = new TrackBar();
             lblEscalaX = new Label();
             lblEscalaY = new Label();
+            numAltura = new NumericUpDown();
+            numVelocidad = new NumericUpDown();
+            label1 = new Label();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)trackEscalaX).BeginInit();
             ((System.ComponentModel.ISupportInitialize)trackEscalaY).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numAltura).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numVelocidad).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
             // 
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1321, 400);
+            pictureBox1.Size = new Size(1878, 799);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
             // btnStart
             // 
-            btnStart.Location = new Point(15, 427);
+            btnStart.Location = new Point(15, 830);
             btnStart.Name = "btnStart";
             btnStart.Size = new Size(94, 29);
             btnStart.TabIndex = 1;
@@ -64,7 +70,7 @@
             // lblAltura
             // 
             lblAltura.AutoSize = true;
-            lblAltura.Location = new Point(1339, 9);
+            lblAltura.Location = new Point(1012, 834);
             lblAltura.Name = "lblAltura";
             lblAltura.Size = new Size(68, 20);
             lblAltura.TabIndex = 2;
@@ -73,7 +79,7 @@
             // lblDistancia
             // 
             lblDistancia.AutoSize = true;
-            lblDistancia.Location = new Point(1248, 427);
+            lblDistancia.Location = new Point(1158, 834);
             lblDistancia.Name = "lblDistancia";
             lblDistancia.Size = new Size(85, 20);
             lblDistancia.TabIndex = 3;
@@ -81,7 +87,7 @@
             // 
             // btnReset
             // 
-            btnReset.Location = new Point(112, 427);
+            btnReset.Location = new Point(112, 830);
             btnReset.Name = "btnReset";
             btnReset.Size = new Size(94, 29);
             btnReset.TabIndex = 4;
@@ -90,7 +96,7 @@
             // 
             // trackEscalaX
             // 
-            trackEscalaX.Location = new Point(12, 505);
+            trackEscalaX.Location = new Point(12, 908);
             trackEscalaX.Maximum = 300;
             trackEscalaX.Minimum = 1;
             trackEscalaX.Name = "trackEscalaX";
@@ -100,7 +106,7 @@
             // 
             // trackEscalaY
             // 
-            trackEscalaY.Location = new Point(200, 505);
+            trackEscalaY.Location = new Point(200, 908);
             trackEscalaY.Maximum = 300;
             trackEscalaY.Minimum = 1;
             trackEscalaY.Name = "trackEscalaY";
@@ -111,7 +117,7 @@
             // lblEscalaX
             // 
             lblEscalaX.AutoSize = true;
-            lblEscalaX.Location = new Point(12, 469);
+            lblEscalaX.Location = new Point(12, 872);
             lblEscalaX.Name = "lblEscalaX";
             lblEscalaX.Size = new Size(97, 20);
             lblEscalaX.TabIndex = 7;
@@ -120,17 +126,55 @@
             // lblEscalaY
             // 
             lblEscalaY.AutoSize = true;
-            lblEscalaY.Location = new Point(200, 469);
+            lblEscalaY.Location = new Point(200, 872);
             lblEscalaY.Name = "lblEscalaY";
             lblEscalaY.Size = new Size(96, 20);
             lblEscalaY.TabIndex = 8;
             lblEscalaY.Text = "Escala Y: 1.00";
             // 
+            // numAltura
+            // 
+            numAltura.Location = new Point(568, 865);
+            numAltura.Name = "numAltura";
+            numAltura.Size = new Size(150, 27);
+            numAltura.TabIndex = 9;
+            numAltura.Value = new decimal(new int[] { 10, 0, 0, 0 });
+            // 
+            // numVelocidad
+            // 
+            numVelocidad.Location = new Point(568, 941);
+            numVelocidad.Name = "numVelocidad";
+            numVelocidad.Size = new Size(150, 27);
+            numVelocidad.TabIndex = 10;
+            numVelocidad.Value = new decimal(new int[] { 10, 0, 0, 0 });
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(568, 830);
+            label1.Name = "label1";
+            label1.Size = new Size(119, 20);
+            label1.TabIndex = 11;
+            label1.Text = "Altura inicial (m)";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(568, 908);
+            label2.Name = "label2";
+            label2.Size = new Size(157, 20);
+            label2.TabIndex = 12;
+            label2.Text = "Velocidad inicial (m/s)";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1419, 592);
+            ClientSize = new Size(1902, 1033);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(numVelocidad);
+            Controls.Add(numAltura);
             Controls.Add(lblEscalaY);
             Controls.Add(lblEscalaX);
             Controls.Add(trackEscalaY);
@@ -145,6 +189,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)trackEscalaX).EndInit();
             ((System.ComponentModel.ISupportInitialize)trackEscalaY).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numAltura).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numVelocidad).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -161,5 +207,9 @@
         private TrackBar trackEscalaY;
         private Label lblEscalaX;
         private Label lblEscalaY;
+        private NumericUpDown numAltura;
+        private NumericUpDown numVelocidad;
+        private Label label1;
+        private Label label2;
     }
 }
