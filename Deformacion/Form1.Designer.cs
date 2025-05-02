@@ -48,7 +48,7 @@
             // 
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(797, 400);
+            pictureBox1.Size = new Size(1321, 400);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
@@ -64,7 +64,7 @@
             // lblAltura
             // 
             lblAltura.AutoSize = true;
-            lblAltura.Location = new Point(815, 12);
+            lblAltura.Location = new Point(1339, 9);
             lblAltura.Name = "lblAltura";
             lblAltura.Size = new Size(68, 20);
             lblAltura.TabIndex = 2;
@@ -73,7 +73,7 @@
             // lblDistancia
             // 
             lblDistancia.AutoSize = true;
-            lblDistancia.Location = new Point(724, 446);
+            lblDistancia.Location = new Point(1248, 427);
             lblDistancia.Name = "lblDistancia";
             lblDistancia.Size = new Size(85, 20);
             lblDistancia.TabIndex = 3;
@@ -130,7 +130,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(895, 592);
+            ClientSize = new Size(1419, 592);
             Controls.Add(lblEscalaY);
             Controls.Add(lblEscalaX);
             Controls.Add(trackEscalaY);
